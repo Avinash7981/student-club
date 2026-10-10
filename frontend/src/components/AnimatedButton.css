@@ -1,0 +1,119 @@
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+.btn-animated.btn-primary {
+  background-color: var(--color-brand);
+  color: var(--color-primary-contrast);
+}
+
+.btn-animated.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-brand-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-animated.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.btn-animated.btn-outline:hover:not(:disabled) {
+  background-color: var(--color-brand-light);
+}
+
+.btn-animated.btn-secondary {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.btn-animated.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-surface-secondary);
+}
+
+.btn-animated.w-full {
+  width: 100%;
+}
+
+.btn-animated.btn-lg {
+  font-size: 16px;
+}
+
+.btn-animated:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-animated .label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+}
+
+.btn-animated.btn-lg .label-container {
+  padding: 12px 24px;
+}
+
+.btn-animated.btn-sm .label-container {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.btn-animated .label-normal,
+.btn-animated .label-hover {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-animated .label-hover {
+  position: absolute;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-animated:hover:not(:disabled) .label-normal {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  .btn-animated:hover:not(:disabled) .label-hover {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-animated:hover:not(:disabled) .label-normal {
+    opacity: 0;
+  }
+  .btn-animated:hover:not(:disabled) .label-hover {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn-animated .label-hover {
+    transform: translateY(0);
+  }
+}
